@@ -1,0 +1,8 @@
+<%- include('partials/header.ejs') %> 
+  <div class="page-title">TODO</div>
+  <div class="card-container">
+    <%- include('partials/card_column.ejs', {customClass: 'card-to-do', statusIndex: 0}) %> 
+    <%- include('partials/card_column.ejs', {customClass: 'card-doing', statusIndex: 1}) %> 
+    <%- include('partials/card_column.ejs', {customClass: 'card-done', statusIndex: 2}) %> 
+  </div>
+<%- include('partials/footer.ejs') %> 
