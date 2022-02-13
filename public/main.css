@@ -28,6 +28,10 @@ body{
     sans-serif;
   background-color: var(--background-primary);
 }
+a{
+  text-decoration: none;
+  color: inherit;
+}
 .page-title{
   font-size: 2em;
   font-weight: bold;
@@ -70,6 +74,15 @@ body{
   border-radius: 10px;
   cursor: pointer;
   user-select: none;
+  box-shadow: 2px 4px 5px 3px var(--background-tertiary);
+  transition: transform 100ms ease-out, border 100ms ease-out;
+}
+.card:hover{
+  transform: translate(0, -0.3em);
+  border: 0.2em solid var(--grey) !important;
+}
+.card:active{
+  border: 0.2em solid var(--interactive-hover) !important;
 }
 .card-to-do .card{
   border: 0.2em solid var(--red);
@@ -83,7 +96,6 @@ body{
 
 .card-name{
   padding: 0.5em 0;
-  background-color: var(--background-tertiary);
   border-radius: 10px;
   font-weight: bold;
 }

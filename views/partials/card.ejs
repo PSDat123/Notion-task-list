@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-name"><%=(task.icon?.emoji ? task.icon.emoji : " ") + task.Name.title[0].plain_text %> </div>
+  <div class="card-name"><%=(task.icon?.emoji || " ") + task.Name.title[0].plain_text %> </div>
   <div class="card-course"><%= task.Course %></div>
-  <div class="card-deadline"><b>Start:</b> <%= task.Deadline?.date?.start ? task.Deadline.date.start : "TBA" %> <br> - <br> <b>End:</b> <%= task.Deadline?.date?.end ? task.Deadline.date.end : "TBA" %></div>
+  <div class="card-deadline"><b>Start:</b> <%= task.Deadline?.date?.start || "TBA" %> <br> - <br> <b>End:</b> <%= task.Deadline?.date?.end || "TBA" %></div>
 </div>

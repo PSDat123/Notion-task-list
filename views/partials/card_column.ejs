@@ -1,7 +1,7 @@
 <div class="card-column <%= customClass %>">
-  <div class="column-title" style=<%="color:var(--" + status[statusIndex].color + ")"%> ><%= status[statusIndex].name %></div>
+  <div class="column-title" style=<%="color:var(--" + (status[statusIndex]?.color || "grey" ) + ")"%> ><%= status[statusIndex]?.name || "TBA" %></div>
   <% tasks.forEach(function(task){%>
-    <% if(task.Status.select.name == status[statusIndex].name){ %> <%# Every task that has status of To Do %> 
+    <% if(task.Status.select.name == status[statusIndex].name){ %> <%# Every task that has status of To Do/Doing/Done %> 
       <%- include('./card.ejs', {task}) %> 
     <% } %> 
   <% }); %> 
