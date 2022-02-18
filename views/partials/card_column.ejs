@@ -1,8 +1,11 @@
 <div class="card-column <%= customClass %>">
-  <div class="column-title" style=<%="color:var(--" + (status[statusIndex]?.color || "grey" ) + ")"%> ><%= status[statusIndex]?.name || "TBA" %></div>
-  <% tasks.forEach(function(task){%>
-    <% if(task.Status.select.name == status[statusIndex].name){ %> <%# Every task that has status of To Do/Doing/Done %> 
-      <%- include('./card.ejs', {task}) %> 
-    <% } %> 
-  <% }); %> 
+  <div class="column-title" style=<%="color:var(--" + (status[statusIndex]?.color || "grey") + ")"%> ><%= status[statusIndex]?.name || "TBA" %></div>
+    <div class="column-content">
+      <% tasks.forEach(function(task){%>
+        <% if(task.Status?.select?.name == status[statusIndex]?.name){ %> <%# Every task that has status of To Do/Doing/Done %> 
+          <%- include('./card.ejs', {task}) %> 
+        <% } %> 
+      <% }); %> 
+      <div class=" card card-create"><i class="fa-solid fa-plus fa-3x card-add" style=<%="color:var(--" + (status[statusIndex]?.color || "grey") + ")"%>></i> </div>
+    </div>
 </div>

@@ -2,7 +2,8 @@
   --background-primary: #36393f;
   --background-secondary: #2f3136;
   --background-secondary-alt: #292b2f;
-  --background-tertiary: #202225;
+  --background-tertiary: rgb(32, 34, 37);
+  --background-modal: rgba(32, 34, 37, 0.6);
   --background-accent: #4f545c;
   --text-primary: #fff;
   --text-secondary: rgb(72, 210, 235);
@@ -27,10 +28,19 @@ body{
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   background-color: var(--background-primary);
+  overflow: hidden;
+}
+input{
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
 a{
   text-decoration: none;
   color: inherit;
+}
+form{
+  margin: 0;
 }
 .page-title{
   font-size: 2em;
@@ -54,7 +64,7 @@ a{
   flex-grow: 1;
   align-items: center;
 }
-.column-title{
+.column-title, .modal-title{
   background-color: var(--background-secondary-alt);
   width: 100%;
   padding: 0.5em 0;
@@ -62,6 +72,16 @@ a{
   font-weight: bold;
   color: var(--text-primary);
   text-align: center;
+}
+.column-content{
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: auto;
+  max-height: 80vh;
 }
 .card{
   width: 95%;
@@ -113,4 +133,94 @@ a{
   padding: 0.5em 0;
   background-color: var(--background-secondary);
   margin: auto;
+}
+.card-add{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0.3em 0;
+  transition: color 100ms ease-out;
+  /* min-height: calc(2 * (0.5em + 0.5em + 0.5em + 0.5em) + 3em); */
+}
+.card:hover .card-add{
+  color: var(--grey) !important;
+}
+/* .card-submit{
+  background: none;
+  border: none;
+  padding: 0;
+} */
+.modal{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: var(--background-modal);
+}
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: relative;
+  background-color: var(--background-primary);
+  left: 20%;
+  top: 10%;
+  width: 60vw;
+  height: 80vh;
+  box-shadow: 2px 4px 5px 3px var(--background-tertiary);
+}
+.modal-form{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-primary);
+  font-weight: bold;
+  font-size: 1.5em;
+  box-sizing: border-box;
+  justify-content: center;
+  flex-grow: 0.5;
+}
+/* .form-title, .form-course{
+  outline: none;
+  border: none;
+} */
+.form-title, .form-course, .form-status, .form-date-start, .form-date-end, .form-submit{
+  outline: none;
+  border: none;
+  margin: 0.7em 0;
+  padding: 0.3em;
+  min-width: 50%;
+  max-width: 90%;
+  font-size: 1em;
+  border-radius: 20px;
+  text-align: center;
+}
+.form-course option{
+  padding: 0.1em;
+}
+.hidden{
+  display: none;
+}
+
+/* Scrollbar style */
+/* width */
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--background-tertiary);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

@@ -1,0 +1,28 @@
+<form action="/create" method="post" class="modal-form">
+  <input type="text" name="title" id="ttl" class="form-title" placeholder="Enter Title">
+  <div>
+    <label for="crs">COURSE: </label>
+    <select name="courseID" id="crs" class="form-course">
+      <% Object.keys(courses).forEach(courseID => { %>
+        <option value="<%=courseID%>"> <%= courses[courseID] %></option> 
+      <% }); %> 
+    </select>
+  </div>
+  <div>
+    <label for="stts">STATUS: </label>
+    <select name="status" id="stts" class="form-status">
+      <% status.forEach(_status => { %>
+        <option value="<%=_status.name%>"> <%= _status.name %></option> 
+      <% }); %> 
+    </select>
+  </div>
+  <div>
+    <label for="dtstrt">START: </label>
+    <input type="datetime-local" name="dateStart" id="dtstrt" class="form-date-start">
+  </div>
+  <div>
+    <label for="dtnd">END: </label>
+    <input type="datetime-local" name="dateEnd" id="dtnd" class="form-date-end">
+  </div>
+  <input type="submit" class="form-submit">
+</form>

@@ -5,4 +5,10 @@
     <%- include('partials/card_column.ejs', {customClass: 'card-doing', statusIndex: 1}) %> 
     <%- include('partials/card_column.ejs', {customClass: 'card-done', statusIndex: 2}) %> 
   </div>
+  <div class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-title">CREATE TASK</div>
+      <%- include('partials/form.ejs') %> 
+    </div>
+  </div>
 <%- include('partials/footer.ejs') %> 
