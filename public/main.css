@@ -42,12 +42,37 @@ a{
 form{
   margin: 0;
 }
+.nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
 .page-title{
   font-size: 2em;
   font-weight: bold;
   text-align: center;
   padding: 0.5em 0;
   color: var(--text-primary);
+}
+.page-sync{
+  margin-left: 1em;
+  color: var(--green);
+  padding: 0.5em;
+  border: 0.3em solid var(--green);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 150ms ease-in;
+}
+.page-sync:hover{
+  background-color: var(--background-secondary-alt);
+}
+.page-sync:hover i{
+  animation: spin 1.5s infinite cubic-bezier(0.74, 0.01, 0.28, 1);
+}
+.page-sync:active{
+  background-color: var(--background-secondary);
 }
 .card-container{
   display: flex;
@@ -72,6 +97,10 @@ form{
   font-weight: bold;
   color: var(--text-primary);
   text-align: center;
+  
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .column-content{
   display: flex;
@@ -95,6 +124,10 @@ form{
   cursor: pointer;
   user-select: none;
   box-shadow: 2px 4px 5px 3px var(--background-tertiary);
+
+  -o-transition: transform 100ms ease-out, border 100ms ease-out;
+  -moz-transition: transform 100ms ease-out, border 100ms ease-out;
+  -webkit-transition: transform 100ms ease-out, border 100ms ease-out;
   transition: transform 100ms ease-out, border 100ms ease-out;
 }
 .card:hover{
@@ -138,17 +171,16 @@ form{
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   padding: 0.3em 0;
+
+  -o-transition: color 100ms ease-out;
+  -moz-transition: color 100ms ease-out;
+  -webkit-transition: color 100ms ease-out;
   transition: color 100ms ease-out;
   /* min-height: calc(2 * (0.5em + 0.5em + 0.5em + 0.5em) + 3em); */
 }
 .card:hover .card-add{
   color: var(--grey) !important;
 }
-/* .card-submit{
-  background: none;
-  border: none;
-  padding: 0;
-} */
 .modal{
   position: absolute;
   width: 100%;
@@ -223,4 +255,13 @@ form{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
 }

@@ -34,6 +34,10 @@ setInterval(() => {
 app.get("/", (req, res) => {
   res.render('index', {status, tasks, courses});
 })
+app.get("/sync", async (req, res) => {
+  await init_async();
+  res.redirect("/");
+})
 app.post("/create", async (req, res) => {
   const data = req.body;
   let flag1 = false;

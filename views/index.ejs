@@ -1,5 +1,8 @@
 <%- include('partials/header.ejs') %> 
-  <div class="page-title"><a href="/">TODO</a></div>
+  <div class="nav">
+    <div class="page-title"><a href="/">TODO</a></div>
+    <div class="page-sync" title="Sync"><a href="/sync"><i class="fa-solid fa-rotate fa-2x fa-spin"></i></a></div>
+  </div>
   <div class="card-container">
     <%- include('partials/card_column.ejs', {customClass: 'card-to-do', statusIndex: 0}) %> 
     <%- include('partials/card_column.ejs', {customClass: 'card-doing', statusIndex: 1}) %> 
