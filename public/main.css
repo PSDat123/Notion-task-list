@@ -218,7 +218,7 @@ form{
   outline: none;
   border: none;
 } */
-.form-title, .form-course, .form-status, .form-date-start, .form-date-end, .form-submit{
+.form-title, .form-course, .form-status, .form-date-start, .form-date-end, .form-password, .form-submit{
   outline: none;
   border: none;
   margin: 0.7em 0;

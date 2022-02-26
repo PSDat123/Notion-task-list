@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const { redirect } = require("express/lib/response");
 const notion = require("./notion.js");
+const md5 = require("md5");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -44,7 +45,7 @@ app.post("/create", async (req, res) => {
   status.forEach(_status => {
     if(_status.name == data.status) flag1 = true;
   })
-  if(flag1 && courses.hasOwnProperty(data.courseID) && data.dateStart != ''){
+  if(md5(data.password) === process.env.PASSWORD && flag1 && courses.hasOwnProperty(data.courseID) && data.dateStart != ''){
     if (data.title == '') data.title = 'Untitled';
     if (data.dateEnd == '') data.dateEnd = null;
     await notion.createTask({
