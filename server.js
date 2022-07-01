@@ -56,7 +56,16 @@ app.post("/create", async (req, res) => {
       dateEnd: data.dateEnd,
     });
     await init_async();
+    res.redirect("/");
   }
-  res.redirect("/");
+  else if(!courses.hasOwnProperty(data.courseID)){
+    res.status(403).send("Missing course");
+  }
+  else if(!data.dateStart){
+    res.status(403).send("Missing start date");
+  }
+  else{
+    res.status(403).send("Xin đừng hack");
+  }
 });
 app.listen(process.env.PORT || 5000);

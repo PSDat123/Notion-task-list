@@ -19,11 +19,18 @@ function formatDate(string_date) {
     second: "numeric",
   });
 }
+function formatURL(url){
+  let shared = url.replace(
+    "https://www.notion.so/",
+    "https://knowing-soccer-158.notion.site/"
+  );
+  return shared;
+}
 async function getTasks() {
   const respond = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID,
   });
-  let pages = respond.results.map((page) => {return {...page.properties, icon: page.icon}});
+  let pages = respond.results.map((page) => {return { ...page.properties, icon: page.icon, url: formatURL(page.url) };});
   for (let i = 0; i < pages.length; ++i) {
     if (pages[i].Deadline?.date?.start)
       pages[i].Deadline.date.start = formatDate(pages[i].Deadline.date.start);
@@ -80,12 +87,14 @@ async function createTask({name, course, status, dateStart, dateEnd}){
     },
   });
 }
-
+// DEBUG
 // (async () => {
   // const respond = await notion.databases.query({
   //   database_id: process.env.NOTION_DATABASE_ID,
   // });
-  // console.log(respond.results[0].properties.Course.relation[0].id)
+  
+  // console.log(respond.results)
+  // console.log(await getTasks());
   // getCoursesID_Name();
   // createTask({
   //   name: "Test4",
