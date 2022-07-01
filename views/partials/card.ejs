@@ -1,5 +1,7 @@
 <div class="card">
-  <div class="card-name"><%=(task.icon?.emoji || " ") + task.Name.title[0].plain_text %> </div>
-  <div class="card-course"><%= courses?.[task?.Course?.relation[0]?.id] || "TBA" %></div>
-  <div class="card-deadline"><b>Start:</b> <%= task.Deadline?.date?.start || "TBA" %> <br> - <br> <b>End:</b> <%= task.Deadline?.date?.end || "TBA" %></div>
+  <a target="_blank" rel="noopener noreferrer" href=<%="" + task.url + "" %>>
+    <div class="card-name"><%=(task.icon?.emoji || " ") + task.Name.title[0].plain_text %> </div>
+    <div class="card-course"><%= courses?.[task?.Course?.relation[0]?.id] || "TBA" %></div>
+    <div class="card-deadline"><b>Start:</b> <%= task.Deadline?.date?.start || "TBA" %> <br> - <br> <b>End:</b> <%= task.Deadline?.date?.end || "TBA" %></div>
+  </a>
 </div>
