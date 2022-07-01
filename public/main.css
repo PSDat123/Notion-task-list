@@ -78,8 +78,8 @@ form{
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  /* justify-content: space-around; */
   gap: 1em;
+  margin: 0 1em;
 }
 .card-column{
   background-color: var(--background-secondary);
@@ -89,7 +89,7 @@ form{
   flex-grow: 1;
   align-items: center;
 }
-.column-title, .modal-title{
+.column-title{
   background-color: var(--background-secondary-alt);
   width: 100%;
   padding: 0.5em 0;
@@ -190,6 +190,31 @@ form{
   z-index: 1;
   background-color: var(--background-modal);
 }
+.modal-title{
+  background-color: var(--background-secondary-alt);
+  width: 100%;
+  padding: 0.5em 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--text-primary);
+  text-align: center;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-title-text{
+  margin: 0;
+  flex: 1;
+}
+.modal-exit {
+  margin-right: 1em;
+  cursor: pointer;
+}
 .modal-content{
   display: flex;
   flex-direction: column;
@@ -214,6 +239,7 @@ form{
   justify-content: center;
   flex-grow: 0.5;
 }
+
 /* .form-title, .form-course{
   outline: none;
   border: none;
